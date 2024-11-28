@@ -36,12 +36,20 @@ public:
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	TSubclassOf<class AMyPenguin> PenguinClass;
 
+	UFUNCTION(BlueprintCallable)
+	int GetCost() { return cost; }
+
 private:
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	FVector Offset = FVector(0, 0, 230);
 
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	float spawnTime = 0.f;
+
+	
+
+	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
+	int cost = 0;
 
 	class APenguinManager* penguinManager;
 };

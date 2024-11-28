@@ -86,13 +86,21 @@ void APenguinGameCharacter::ModifyMoney(int32 value)
 {
 	playerMoney += value;
 	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, FString::Printf(TEXT("Money: %i"), playerMoney));
+	updateText();
 }
 
 void APenguinGameCharacter::ModifyPenguinPoints(int32 value)
 {
 	penguinPoints += value;
 	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, FString::Printf(TEXT("PP: %i"), penguinPoints));
+	updateText();
 }
+
+void APenguinGameCharacter::updateText_Implementation()
+{
+}
+
+	
 
 void APenguinGameCharacter::collectPenguin(int32 value)
 {

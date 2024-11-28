@@ -12,6 +12,8 @@ AMyPenguin::AMyPenguin()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	//PrimaryActorTick.bCanEverTick = true;
 
+	
+
 	collider = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere Collider"));
 	RootComponent = collider;
 
@@ -33,7 +35,7 @@ AMyPenguin::AMyPenguin()
 void AMyPenguin::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	this->SetLifeSpan(30.f);
 }
 
 // Called every frame

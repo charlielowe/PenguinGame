@@ -73,13 +73,21 @@ private:
 
 	class APenguinManager* penguinManager;
 public:
+	UFUNCTION(BlueprintCallable)
 	int32 GetMoney() { return playerMoney; }
+	UFUNCTION(BlueprintCallable)
 	int32 getPenguinPoints() { return penguinPoints; }
+
 	UFUNCTION(BlueprintCallable)
 	void ModifyMoney(int32 value);
 
+	UFUNCTION(BlueprintCallable)
 	void ModifyPenguinPoints(int32 value);
 
+	UFUNCTION(BlueprintNativeEvent)
+	void updateText();
+
 	void collectPenguin(int32 value);
+
 };
 
