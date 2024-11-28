@@ -39,14 +39,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int GetCost() { return cost; }
 
+	UFUNCTION(BlueprintCallable)
+	void stopSpawning() { spawnTime = 0.f; }
+
+	UFUNCTION(BlueprintCallable)
+	void resetSpawnTime() { spawnTime = spawnTime2; }
+	
+
 private:
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	FVector Offset = FVector(0, 0, 230);
 
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	float spawnTime = 0.f;
-
 	
+	float spawnTime2 = 0.f;
 
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	int cost = 0;

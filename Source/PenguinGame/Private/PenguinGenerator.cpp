@@ -19,6 +19,8 @@ APenguinGenerator::APenguinGenerator()
 void APenguinGenerator::BeginPlay()
 {
 	Super::BeginPlay();
+
+	spawnTime2 = spawnTime;
 	
 	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
 
