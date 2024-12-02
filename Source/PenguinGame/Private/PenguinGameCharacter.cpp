@@ -85,14 +85,12 @@ void APenguinGameCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 void APenguinGameCharacter::ModifyMoney(int32 value)
 {
 	playerMoney += value;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, FString::Printf(TEXT("Money: %i"), playerMoney));
 	updateText();
 }
 
 void APenguinGameCharacter::ModifyPenguinPoints(int32 value)
 {
 	penguinPoints += value;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, FString::Printf(TEXT("PP: %i"), penguinPoints));
 	updateText();
 }
 

@@ -37,7 +37,6 @@ void ASellCircle::OnCharacterEnter(UPrimitiveComponent* OverlappedComponent, AAc
 	if (charRef != nullptr) {
 		charRef->ModifyMoney(charRef->getPenguinPoints());
 		charRef->ModifyPenguinPoints(-charRef->getPenguinPoints());
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow, TEXT("Sold!"));
 	}
 }
 

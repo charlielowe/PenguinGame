@@ -40,10 +40,13 @@ public:
 	int GetCost() { return cost; }
 
 	UFUNCTION(BlueprintCallable)
-	void stopSpawning() { spawnTime = 0.f; }
+	float getSpawnTime() { return spawnTime; }
 
 	UFUNCTION(BlueprintCallable)
-	void resetSpawnTime() { spawnTime = spawnTime2; }
+	void stopSpawning();
+
+	UFUNCTION(BlueprintCallable)
+	void resetSpawnTime();
 	
 
 private:
