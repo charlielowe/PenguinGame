@@ -103,7 +103,9 @@ void APenguinGameCharacter::updateText_Implementation()
 void APenguinGameCharacter::collectPenguin(int32 value)
 {
 	ModifyPenguinPoints(value);
-	penguinManager->decreaseCurrentPenguins();
+
+	// Max Penguins Code
+	//penguinManager->decreaseCurrentPenguins();
 }
 
 

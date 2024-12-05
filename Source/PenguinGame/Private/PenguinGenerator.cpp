@@ -24,7 +24,9 @@ void APenguinGenerator::BeginPlay()
 	
 	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
 
-	TArray<AActor*> FoundActors;
+
+	// Max Penguins Code
+	/*TArray<AActor*> FoundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APenguinManager::StaticClass(), FoundActors);
 
 	if (sizeof(FoundActors) > 0) {
@@ -32,7 +34,7 @@ void APenguinGenerator::BeginPlay()
 	}
 	else {
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("No Penguin Managers Found"));
-	}
+	}*/
 }
 
 // Called every frame
@@ -60,8 +62,11 @@ void APenguinGenerator::SpawnPenguin()
 			//Set Spawn Collision Handling Override
 			FActorSpawnParameters ActorSpawnParams;
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+			World->SpawnActor<AMyPenguin>(PenguinClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 
-			if (penguinManager != nullptr) 
+
+			// MAX PENGUINS CODE
+			/*if (penguinManager != nullptr)
 			{
 				// If the current amount of penguins is less than the max amount, spawn more penguins
 				if (penguinManager->getCurrentPenguins() < penguinManager->getMaxPenguins()) {
@@ -78,7 +83,7 @@ void APenguinGenerator::SpawnPenguin()
 			{
 				GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Penguin Manager is nullptr"));
 
-			}
+			}*/
 			
 			
 		}

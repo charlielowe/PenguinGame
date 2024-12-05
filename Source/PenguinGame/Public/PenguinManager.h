@@ -26,6 +26,7 @@ public:
 	int32 getMaxPenguins() { return maxPenguins; }
 	int32 getCurrentPenguins() { return currentPenguins; }
 	void increaseCurrentPenguins() { currentPenguins++; }
+	UFUNCTION(BlueprintCallable)
 	void decreaseCurrentPenguins() { currentPenguins--; }
 
 private:
