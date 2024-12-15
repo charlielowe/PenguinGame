@@ -118,3 +118,15 @@ void APenguinGenerator::resetSpawnTime()
 	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
 }
 
+void APenguinGenerator::EnableActor_Implementation()
+{
+	spawnTime = spawnTime2;
+	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+}
+
+void APenguinGenerator::DisableActor_Implementation()
+{
+	spawnTime = 0.f;
+	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+}
+

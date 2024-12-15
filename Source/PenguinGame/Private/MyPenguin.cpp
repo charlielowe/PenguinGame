@@ -55,3 +55,4 @@ void AMyPenguin::OnPickup(UPrimitiveComponent* OverlappedComponent, AActor* Othe
 	}
 }
 
+

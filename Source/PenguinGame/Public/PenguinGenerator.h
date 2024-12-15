@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "EnableDisableInterface.h"
 #include "PenguinGenerator.generated.h"
 
 UCLASS()
-class PENGUINGAME_API APenguinGenerator : public AActor
+class PENGUINGAME_API APenguinGenerator : public AActor, public IEnableDisableInterface
 {
 	GENERATED_BODY()
 	
@@ -62,4 +63,8 @@ private:
 	int cost = 0;
 
 	class APenguinManager* penguinManager;
+
+	void EnableActor_Implementation() override;
+
+	void DisableActor_Implementation() override;
 };
