@@ -64,7 +64,6 @@ void APenguinGenerator::SpawnPenguin()
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 			World->SpawnActor<AMyPenguin>(PenguinClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 
-
 			// MAX PENGUINS CODE
 			/*if (penguinManager != nullptr)
 			{
