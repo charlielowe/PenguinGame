@@ -11,8 +11,8 @@ UCLASS()
 class PENGUINGAME_API APenguinGenerator : public AActor, public IEnableDisableInterface
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	APenguinGenerator();
 
@@ -22,16 +22,16 @@ protected:
 
 	float timer = 0.f;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Spawner Handle
 	FTimerHandle SpawnerHandle;
-	
+
 	// Function that gets called when the timer time outs
 	void SpawnPenguin();
-	int32 loops= 0;
+	int32 loops = 0;
 
 	/** Penguin class to spawn */
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
@@ -44,7 +44,14 @@ public:
 	float getSpawnTime() { return spawnTime; }
 
 	UFUNCTION(BlueprintCallable)
+	void setSpawnTime(float newTime) { spawnTime = newTime; upgradeLevel += 1; GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+	}
+
+	UFUNCTION(BlueprintCallable)
 	void stopSpawning();
+
+	UFUNCTION(BlueprintCallable)
+	float getUpgradeLevel() {return upgradeLevel;}
 
 	UFUNCTION(BlueprintCallable)
 	void resetSpawnTime();
@@ -62,9 +69,13 @@ private:
 	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
 	int cost = 0;
 
+	UPROPERTY(EditAnywhere, Category = Penguin, meta = (AllowPrivateAccess = "True"))
+	int upgradeLevel = 1;
+
 	class APenguinManager* penguinManager;
 
 	void EnableActor_Implementation() override;
 
 	void DisableActor_Implementation() override;
+
 };
