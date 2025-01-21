@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "EnableDisableInterface.h"
+#include "Components/AudioComponent.h"
 #include "PenguinGenerator.generated.h"
 
 UCLASS()
@@ -77,5 +78,12 @@ private:
 	void EnableActor_Implementation() override;
 
 	void DisableActor_Implementation() override;
+
+	UPROPERTY(EditAnywhere, Category = "Sound")
+	USoundBase* GeneratorSound;
+
+	UPROPERTY(EditAnywhere, Category = "Sound")
+	USoundAttenuation* GeneratorAttenuation;
+
 
 };

@@ -121,6 +121,7 @@ void APenguinGenerator::EnableActor_Implementation()
 {
 	spawnTime = spawnTime2;
 	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), GeneratorSound, GetActorLocation(), 1.0f, 1.0f, 0.0f, GeneratorAttenuation);
 }
 
 void APenguinGenerator::DisableActor_Implementation()
