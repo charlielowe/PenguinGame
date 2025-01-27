@@ -63,7 +63,6 @@ void APenguinGenerator::SpawnPenguin()
 			FActorSpawnParameters ActorSpawnParams;
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 			World->SpawnActor<AMyPenguin>(PenguinClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Spawned!"));
 
 			// MAX PENGUINS CODE
 			/*if (penguinManager != nullptr)

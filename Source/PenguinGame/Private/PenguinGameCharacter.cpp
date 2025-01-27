@@ -50,12 +50,18 @@ void APenguinGameCharacter::BeginPlay()
 	TArray<AActor*> FoundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APenguinManager::StaticClass(), FoundActors);
 
-	if (sizeof(FoundActors) > 0) {
-		penguinManager = Cast<APenguinManager>(FoundActors[0]);
+
+
+	if (FoundActors.IsValidIndex(0))
+	{
+			penguinManager = Cast<APenguinManager>(FoundActors[0]);
 	}
-	else {
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("No Penguin Managers Found"));
+	else 
+	{
+			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("No Penguin Managers Found"));
 	}
+
+	
 	
 }
 
