@@ -68,8 +68,8 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 private:
-	int32 playerMoney = 100;
-	int32 penguinPoints = 0;
+	int32 playerMoney;
+	int32 penguinPoints;
 
 	class APenguinManager* penguinManager;
 public:
@@ -83,12 +83,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ModifyPenguinPoints(int32 value);
-
-	UFUNCTION(BlueprintCallable)
-	void SetMoney(int32 value) { playerMoney = value; }
-
-	UFUNCTION(BlueprintCallable)
-	void SetPenguinPoints(int32 value) { penguinPoints = value; }
 
 	UFUNCTION(BlueprintNativeEvent)
 	void updateText();
