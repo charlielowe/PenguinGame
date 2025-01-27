@@ -63,6 +63,7 @@ void APenguinGenerator::SpawnPenguin()
 			FActorSpawnParameters ActorSpawnParams;
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 			World->SpawnActor<AMyPenguin>(PenguinClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Spawned!"));
 
 			// MAX PENGUINS CODE
 			/*if (penguinManager != nullptr)
@@ -107,8 +108,7 @@ void APenguinGenerator::SpawnPenguin()
 
 void APenguinGenerator::stopSpawning()
 {
-	spawnTime = 0.f;
-	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+	GetWorldTimerManager().ClearTimer(SpawnerHandle);
 }
 
 void APenguinGenerator::resetSpawnTime()
@@ -119,14 +119,12 @@ void APenguinGenerator::resetSpawnTime()
 
 void APenguinGenerator::EnableActor_Implementation()
 {
-	spawnTime = spawnTime2;
 	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), GeneratorSound, GetActorLocation(), 1.0f, 1.0f, 0.0f, GeneratorAttenuation);
 }
 
 void APenguinGenerator::DisableActor_Implementation()
 {
-	spawnTime = 0.f;
-	GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+	stopSpawning();
 }
 

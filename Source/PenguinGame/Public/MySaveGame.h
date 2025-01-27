@@ -49,6 +49,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 totalMoney;
 
+	// Placed Items
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<TSubclassOf<AActor>> savedClasses;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<FTransform> savedTransforms;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<float> savedUpgradeLevels;
+	
+
 	UMySaveGame();
+
+
 	
 };

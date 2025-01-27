@@ -45,7 +45,7 @@ public:
 	float getSpawnTime() { return spawnTime; }
 
 	UFUNCTION(BlueprintCallable)
-	void setSpawnTime(float newTime) { spawnTime = newTime; upgradeLevel += 1; GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
+	void setSpawnTime(float newTime) { spawnTime = newTime; GetWorldTimerManager().SetTimer(SpawnerHandle, this, &APenguinGenerator::SpawnPenguin, spawnTime, true);
 	}
 
 	UFUNCTION(BlueprintCallable)
@@ -53,6 +53,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	float getUpgradeLevel() {return upgradeLevel;}
+
+	UFUNCTION(BlueprintCallable)
+	void setUpgradeLevel(float value) { upgradeLevel = value; }
 
 	UFUNCTION(BlueprintCallable)
 	void resetSpawnTime();
